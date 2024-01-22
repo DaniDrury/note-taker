@@ -17,7 +17,13 @@ Web application that allows users to create new notes with a title and body, vie
 No installation necessary. Application is deployed on render.com.
 
 ## Usage
-In your browser, open the following url:
+In your browser, open the following url: https://note-taker-k7zk.onrender.com
+Click "Get Started" to begin.
+Click on "Note Title" to enter a Title of a new note, then click "Note Text" to enter the note.
+Click "Save Note" to add your note.
+Notes will appear in a list on the left side of the screen.
+Click a particular note to see the note details.
+Click the Trash Can icon to delete a note.
 
 ## Credits
 N/A
