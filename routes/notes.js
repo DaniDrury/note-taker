@@ -8,7 +8,7 @@ const uuid = require('../helpers/uuid');
 // GET route for retrieving all notes
 notes.get('/', (req, res) => {
   console.log(`${req.method} request received for notes`);
-  readFromFile('./db/db.json','utf-8').then((data) => {
+  readFromFile('./db/db.json','utf8').then((data) => {
     res.json(JSON.parse(data))
   });
 });
@@ -16,7 +16,6 @@ notes.get('/', (req, res) => {
 // POST route for posting new note
 notes.post('/', (req, res) => {
   console.info(`${req.method} request received to add a note`);
-  // console.log(req.body);
 
   const { title, text } = req.body;
 
@@ -36,7 +35,7 @@ notes.post('/', (req, res) => {
 
 // DELETE route for deleting notes
 notes.delete('/:id', (req, res) => {
-
+  console.log(req.params.id);
   readAndSplice(req.params.id, './db/db.json');
   res.json("DELETE Request Called");
 });

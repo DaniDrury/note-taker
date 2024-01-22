@@ -32,12 +32,16 @@ const readAndAppend = (content, file) => {
 };
 
 const readAndSplice = (id, file) => {
-  fs.readFile(file, 'utf-8', (err, data) => {
+  fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
-      const index = parsedData.indexOf(id);
+      const index = parsedData.findIndex((note) =>
+        note.id === id
+      );
+      console.log(parsedData);
+      console.log(index);
       parsedData.splice(index, 1);
       writeToFile(file, parsedData);
     }
