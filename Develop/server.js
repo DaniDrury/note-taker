@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 
-// create routes variables
+// create api routes variables
 const api = require('./routes/routes.js');
 
 // set defult PORT
@@ -12,6 +12,11 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // middleware
+// for logging everything that comes in
+app.use((req,res,next) => {
+	console.log(req.method,req.url);
+	next();
+});
 // for handling json data requests
 app.use(express.json());
 // for handling url requests
