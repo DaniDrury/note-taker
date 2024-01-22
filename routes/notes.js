@@ -2,12 +2,12 @@
 const notes = require('express').Router();
 // acquire fsUtilities helper file for reading/writing to file
 const { readFromFile, readAndAppend, readAndSplice } = require('../helpers/fsUtils');
+// acquire uuid function for creating random ids
 const uuid = require('../helpers/uuid');
-
 
 // GET route for retrieving all notes
 notes.get('/', (req, res) => {
-  console.log(`${req.method} request received for notes`);
+  console.info(`${req.method} request received for notes`);
   readFromFile('./db/db.json','utf8').then((data) => {
     res.json(JSON.parse(data))
   });
@@ -35,7 +35,7 @@ notes.post('/', (req, res) => {
 
 // DELETE route for deleting notes
 notes.delete('/:id', (req, res) => {
-  console.log(req.params.id);
+  console.info(`${req.method} request received to delete a note`);
   readAndSplice(req.params.id, './db/db.json');
   res.json("DELETE Request Called");
 });

@@ -40,8 +40,6 @@ const readAndSplice = (id, file) => {
       const index = parsedData.findIndex((note) =>
         note.id === id
       );
-      console.log(parsedData);
-      console.log(index);
       parsedData.splice(index, 1);
       writeToFile(file, parsedData);
     }
